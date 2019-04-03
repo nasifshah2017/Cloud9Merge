@@ -1,0 +1,14 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "Express App Assignment",
+  "main": "app.js",
+  "scripts": {
+    "test": "Nasif Shah"
+  },
+  "author": "Nasif Shah",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

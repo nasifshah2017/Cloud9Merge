@@ -1,0 +1,18 @@
+.thumbnail img { /*Selecting all the img tags inside of the thumbnail class*/
+
+    width: 100%;
+    
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail  .caption-full {
+    padding: 9px;
+}
+
+.delete-form{
+    display: inline; /* Keeping EDIT and DELETE button on the same line, 
+                        they go to different line */
+}

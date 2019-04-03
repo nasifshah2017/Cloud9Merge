@@ -1,0 +1,12 @@
+.icon {
+  font-size: 2em;  /* Doubling the size of the comment icon */  
+}
+
+.container.main {
+    margin-top: 7.0em;
+}
+
+#delete {
+  display: inline; /* Setting the Delete and Edit button to be on the same line */
+                   /* Check at show.ejs */ 
+}

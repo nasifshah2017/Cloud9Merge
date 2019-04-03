@@ -1,0 +1,243 @@
+# Git
+
+## Introduction
+* What is Git?
+* What is GitHub?
+* Why should you care?
+* Novel Writing Analogy
+* Installing Git (not really)
+*
+
+- It is a Version Control System. It is away for us to work with different versions
+- of our code. So, that we can save different features and notes as we progress
+- and have different features and notes that we can move forwards and backwards through
+- time, and then we can collaborate with other people and incorporate different versions 
+- of some code that I wrote with the code that my coworker wrote. It' really hard to understand
+- the utility of Git, to really see why it makes sense when you are working by yourself and when 
+- you are starting out. So, as I mentioned that it helps you save different versions, and helps 
+- you collaborate with people, if you have a huge project it's really beneficial. 
+- 
+- Git is a technology, it is totally seperate. GitHub is a website, it is an application
+- that works with Git, but they are not the same thing at all. We are just going to focus 
+- on Git at the beginning. We should care about it because it is really useful. It is 
+- something that lots and lots of teams use. It is just one of those things that good to
+- have on your resume, and it not actually lnited only to writing code. Initailly, that
+- was what it was kind of created for, but more recently there has been other applications.
+- Git can be used to manage the process of writing a novel, or a play. 
+- So, imagine that you are a writer, and have some huge story that is in your head, that
+- you are going to sit down and write, now for example you write an essay and save it as
+- "essay v1" and then you decided to make some crazy change, or decided to lead the entire
+- paragraph and try something totally different, but I don't want to abandoned what you wrote
+- at the beginning then you would use save as and make a copy as "essay v2", and everytime 
+- you have sort of a checkpoint where you could go back and and revise the old draft, where
+- you could read what you used to have and you could create a new document and use save as 
+- and give it a new title, and usually increment the number and eventually we could get a
+- number like "essay_final_real_version_pick_this_one" or something ridiculous because
+- my naming convention really got out of hand. 
+- So, that is one of the problems that gets solved by using Git, or what we can do is have
+- one essay or a screenplay that we are working on and use Git and basically tell it to save
+- my files and keep track of them. I still have to save the files in my text editor, but what
+- we can actually do with Git is alright at this point save all the files that I have added in,
+- maybe I wrote the death of the main character and then I could write a little bit more and 
+- save again using Git and say that I have now just added in the death of the secondary character
+- and then I could change my mind and say maybe I will take the stiry to a different route. So,
+- then I could try something and save another version of it, not really a draft, but save another
+- version where instead of killing off the two main characters they both live they get married 
+- and they have kids. Then my editor might review my story and say that you know what you should
+- have just killed them off. Then I can simply just using a Git command I can say go back to the 
+- point where I saved it where I saved it and said that I killed off the main characters. 
+- It is not only limited to one file, which is something it is very different from traditional 
+- systems of managing your versions, on an essay it's one file I am working on, then I save it 
+- and then I might save as but it is always one file, but what you really do with Git is that if
+- you have a huge project, like if we have project with 10 Javascript files, a bunch of CSS or
+- images, html, and lots of different technologies, lets say it is an Express app, with lots of 
+- folders then what we can do is, target individual pieces and save them using Git, so I can say
+- I just created the view's directory and added in the views for dogs and I can save that as a 
+- checkpoint to which I can come back later and then I can do something later on, where I decide
+- okay just remove the dogs' directory from the view's directory and instead move them into their
+- own dog's directory which has its own view's directory and I can save that as a checkpoint, and 
+- I can do that for all different pieces, so usually what you end up with is at the end of a project
+- you will have lots and lots of differnt little commits, is what they are called. 
+
+## Git Basic
+* Git init
+* Git status
+* Git add
+* Git commit
+
+## Git Checkout
+* Git Log
+* Git Checkout
+* 
+        HEAD
+         O -> O -> O -> O 
+                        Master
+- Right now I am inside directory called "Git" that I created, inside that I will create another 
+- directory called "git_intro". We will cd ito that and inside of that we will create a simple 
+- application, I am not even going to call it an application, I will just add some files, and lets 
+- pretend that is a gigantic application. I want to use Git to track my changes and revert back if I 
+- make a mistake, I wanna able to step by step see the code that I wrote everyday or everytime I commit
+- changes. To do that I need to tell Git that this git_intro even exists and I want it to care about it.
+- So, Git isn't only watching every file on our computer, instead we have to manually tell it to initialize
+- Git in this directory. Basically, get ready Git, I am going to use you in this folder, and it only works 
+- in that folder and any folders that are inside of that folder. If we initialize Git inside of git_intro
+- then we are tracking all the code those are inside of git_intro but it won't track any change outside
+- of git_intro. If we want Git to track our whole workspace then we will have to initiaize Git inside the
+- "backend-colt-udemy" folder. Usually, we do just do that, usually we have one repository for one project.
+- So, one repo per project. 
+- So, first we will make a file by the name "app.js" and by the command "touch app.js" and open that file. 
+- Then lets just add something on there as 'console.log("THIS IS MY COMPLEX APP!");'. So, pretend again that 
+- this is a big app. Then we run our first command as "git init" and that is what all we have to run. So,
+- first we have to make sure that we are in the right directory called git_intro and then we run git init. 
+- Then we get a little message that says "Initialized empty Git repository in file directory address".
+- Also notice that it added .git at the end. Now if we run the command "ls" we get a result that shows 
+- "app.js", but we run "ls -a" then we get "./ ../ .git/ app.js". We see a folder with a name ".git". 
+- this is actually a hidden folder. So, when we run "git init", it makes a hidden directory, called ".git",
+- whatever I run in the "git init" command its going to track all our changes, that's basically the magic
+- thats where all of Git exists. 
+- So, if I am working on a huge project with 20 different files and I have committed my code a bunch of times,
+- I have been working on it for years maybe and I delete that .git folder, I potentially have lost everything.
+- If I didn't have it backed up, if I wasn't using GitHub then I have lost all my changes and my history. 
+- So, its important that you don't screw that but usually you won't even see it unless you are looking for it.
+- In the event that you do want to get rid of Git, if you messed up and you initialized Git repository on your
+- whole computer, you did it on the home or root directory or you did it on the backend-colt-udemy, and you don't
+- want Git to track every single file on your computer at once, then you want to remove this and you would remove
+- it like just any other director by running the commend "rm -rf". 
+- The next command that we are going to talk about is called "Git Status". So, this is an important one, it's not
+- really an action, it doesn't tell Git to do anything. It basically asks for a status, and its really a common
+- thing to type, before you do anything else. So, you usually check in with Git, you say whats your status and then 
+- it tells you something and then you do something based off of that. 
+- So, now if we run the command "git status" we get on branch master initial commit, untracked files "app.js",
+- nothing added to commit but untracked files present. Now if we declare a new file by the name "app.js" and then 
+- type git status it tells us that it has two untracked files "app.js" and "cats.js". The reason it says that they
+- are untracked, this is a really important way that Git works is that just by initializing a repository on a 
+- folder, it doesn't automatically know about or automatically track every file or every change that I make.
+- The way the Git works, is actually a two step workflow, so I can have a bunch of files but I might only
+- want Git to know about onlu two or three of them, so for example if you working on a project that has some 
+- sensitive information or some secret codes that you don't want to share on GitHub or you don't want to publish,
+- what you can do is tell Git to watch your other files but ignore your secret files or ignore your environment
+- or whatever it is called, there might be some sensitive data that you don't want Git to know about. So, just 
+- by initaializing it Git tells us I know that there are this files in the folder but I am nit tracking them.
+- So, if we want Git track this files what we need to do it run the next command which is "Git add". So, as I 
+- said that it is a two step workflow where I add the files and then I tell Git that here are the files that
+- I want you track and then we commit. Commit is like making a checkpoint in time with the changes that you 
+- have added. It will make more sense once we get little more practice.
+- So, lets start by typing "git add", so when we type "git add" we can add one file by actually typing
+- "git add app.js" and then when we run this command we get "Changes to be committed: new file app.js" and 
+- "untracked files cats.js". So, what this means is when we run "git commit" then the new file app.js
+- is what is going to be saved. So, what this means is that when we run "git commit" the "app.js" file is
+- what is going to be saved, the fact that we made a new file called "app.js". So, if we revert back to this 
+- point in the future then all we are going to see is the changes made to app.js files sice that time but
+- we will not see any changes made on the cats.js file as we did not commit on that. Then we git commit by
+- adding a message as running the following command "git commit -m 'add app file'". Everytime we commit
+- we need to add a message like that to put a reference to the commit that was made. After we press enter
+- we get the following message that says "1 file changed, 1 insertion" and then if we run git status
+- we get there is an untracked file called "cats.js" that is not being tracked. So, lets just add that file 
+- by running the command "git add cats.js" and then we run "git status" and we get "Changes to be committed
+- : new file: cats.js" and then we commit on this file by running "git commit -m 'add cats file'" and we get 
+- the following output that says "add cats file", 1 file changed, 0 insertions, 0 deletions. Now if we run 
+- "git status" we get nothing to commit, working directory clean. By saying working directory clean it means 
+- that there is nothing to commit, everything that there is Git is keeping a track of it. So, now lets say
+- that I have my application and I am going top open my cats.js file as well. Now if we type "console.log
+- ('MEOW!!!');", we save the file and then on the console we run the command "git status" we get the following
+- output that says "Changes not staged for commit: modified: cats.js". So, gits telling me that cats.js file
+- is modified. Before it told us that cats.js file is created it is a new file and if we removed cats.js 
+- it would tell us here is a change I know about cats.js was removed. Now if we only run "git commit" it 
+- would not commit or do anything as remember we need to add the file first that we want to commit, so 
+- what we are gong to do is add that file again, "git add cats.js" and then we are going to do a git commit
+- by running the command "git commit - 'add meow to cats' ", now when we run "git status" we get 
+- "nothing to commit, working directory is clean". 
+- The "git log" command gives us the history of changes and commits that we made in this repo. It opens up
+- a new terminal interface on which if we press enter it will scroll. We can also use the up arrow to scroll
+- through but we can't use regular commands right now. To get out of it we can type "q". So, if we go all the 
+- way to the bottom we see the first commit that we made and it also shows us the author, the date and the 
+- message that we added with it. The most important concern as long as git is concern is the commit string,
+- that is there after the commit word. Its really really important beacuse that is the unique identifier.
+- So, if we want to go back and we want to look at the very beginning then we need this identifier. 
+- So, if we copy that identifier and check out from git log by hitting q. Then we run a new command 
+- called "git checkout" and paste in that identfier and hit enter then git tells me that I have items
+- those are uncommitted and that would be overwritten by checkout thats why commit them before you checkout
+- So, we are going to commit by running the command "git add app.js" and then "git commit -m mess up app file"
+- Then we run the command "git status" and get the output "nothing to commit". Now we run "git checkout" again
+- by pasting the identifier. This time we get a much longer message and most importantly it doesn't say
+- master at the end of the command line. It gets cut off because the identifier it really long, but if 
+- we type git status, we get "HEAD detached at identifier string". The head is more like pointer to the current
+- place we are in, and we can move that around to move back and forth in time. Whats important is that we are
+- no longer on master. So, what we have done is we gone back in time, we are inspecting the code at that time. 
+- So, now if we type ls and hit enter then we only get the app.js file as that was the only file there at that
+- time. When we do a git checkout like that and then the name and commit and then the string, if we do that, 
+- It takes me out of the current flow or the normal flow of Git, that's why it says HEAD detached. 
+- So, if we imagine our Git history as sort of a timeline that looks like O-> O-> O-> O-> O->, where each of 
+- the Os are commits, each of them are the point of time where we committed and they are on a linear list here,
+- where we started at one and made some changes and committed again and there is a flow to this. 
+-       HEAD
+-         O -> O -> O -> O
+-                        Master
+- So, this means that Master is the point where we were and then we went back in time which is why the HEAD
+- got detached and it got attached to the point where we are right now. Usually when we use Git checkout it 
+- is to left off and checkout out old code and then go back to where we were. So, think of it as hitting the 
+- pause button on the code that we had and then we checked out some previous code which is where we are right
+- now and then we copy a line or, we view a note we wrote to ourselves or look at some old codes and then we 
+- go back to Master and that will fix the problem of Head detached. Its not really a problem but it can be, 
+- because if I start making changes right now in my app.js and I try and add and commit, we will run into a 
+- problem, it will not know what to do as we have master at the end but we are on the head. We are going to
+- have to make a decision, so usually what we do is we check something out, we inspect it, view some code and
+- go back to master. Sometime though we want to go back to an old version and revert which basically means 
+- go back and start at that point in time, rather than just checking it out. So, before we do that let
+- me just show you how to go back to master. Then again we run "git status" and we get HEAD detached at 
+- the identifier string and then we run "git checkout master" and then that takes us back forward in time 
+- and now first thing we notice is that those files come back and we run the ls command and it gives us the
+- three files "app.js, cats.js and dogs.js." Now we run git status and we see that we are back on branch master,
+- So, lets now take that we want to go back to the point where we only had the cats.js and the app.js file but
+- not the dogs.js file. So, we don't just want to check it out and look at it, but we actually want our code to
+- reflect that state. I want to add a new commit that says we are reverted back and we are string over without
+- the dogs.js file. So this is like if you scrapped a big part of your novel or you want to go back before you
+- added in user authentication, before you added in bootstrap, and you just want to go back and start over at
+- that point and the unfortunate thing here is that there are lot of ways of doing this. Most developers are
+- pretty comfortable about the flow that we are talking about git status commit over and over, maybe checking
+- out something, developers will work with branches, when it comes to reverting back to the old code, to 
+- undoing something, to deleting changes, or whatever it is. That is something you do not do all that often,
+- its pretty rare that you abandone your current code, especially when you are on a bigger team, its not that
+- it never happens, but those sort of things are not the norm, and I would say that most developers does
+- not know how to do that on their top of the head, or they might know one way of doing it but they are might
+- be five oten different ways of doing it. So, the way people use git again is that they are pretty comfortable
+- with the basics, the bread and butter coommands, the five to seven commands, and one day someone has to do 
+- something they don't know how to do and they just research it. So, something like stackoverflow is really 
+- really hopful. So here is a post that is asking how do I rvert back to my old commit and there is probably
+- 20 different answers and none of them are the same. So, we will walk through some of them and you will that 
+- some of them are multiple lines long, some of them will make you destroy to some of the commits that you have
+- made before you revrt back, some of them will keep the commits that you have, there are lots of different ways,
+- The one that we are going to work with is the one that says "git revert --no-commit 0766c053..HEAD" "git commit"
+- its nice and short and it is pretty easy to do. What we do is we type git revert --no-commit and then the commit
+- identifier that we want to revert back to, and the .. HEAD and then below it says it will revert everything from
+- the HEAD back to the commit hash (string), back to whatever commit that we provided, meaning it will recreate
+- that commit state, as if every commit since has been walked back, so thats not as important and then the --no-commit
+- is a flag that tells git to revrt back all the commits at once rather doing it one at a time, which would then asking
+- us for message for every single one, so rather than just doing that we can do --no commit, it will revert everything
+- back and then we can run git commit and give it a message like reverted back or undo changes or whatever we do 
+- so lets try it out now, so lets copy the commit identifier when we added "MEOW" to cats. First always type git status
+- and get nothing to commit, and then we run git revert -- no-commit and then paste that string in and then ..HEAD
+- again this is a lot and something that we will not memorize and agin use your googling skills, its something that
+- we will not do very often, but it is impotant to find it and figure out how to do it. Not that you need to memorize
+- this at all. Git commit, add, init are those that worth memorizing, but something like this as revert -- no-commit
+- we wouldn't waste our time on it. Now we see that we only have app.js, cats.js and dogs.js is gone, and we only have
+- app.js and cats.js, but dogs.js is gone, lets look at cats.js and it only has MEOW and lets look at app.js it only
+- has single line THIS IS MY COMPLEX APP! It we type git status right now you can see we only have some changesthat 
+- needs to be committed and those changes are what basically got changed when we revereted back it deleted the dogs 
+- file and it changed app and cats.js and then run the command "git commit -m 'revert back to commit identifier'"
+- and then we hit enter and the we type git status we are on master, nothing to commit we have app.js and cats.js
+- Its impotant to note that we don't just lose everything, if we did want to go back where we had the dogs file 
+- we could run "git log" and you will see that we have al the commits that we ever had and the revert back command
+- at the end which we did. So, git is really really powerful and it is also pretty intimidating when you are 
+- starting out and when you see something like this. The reason we decided to show it is because, even you don't
+- do it a lot it shows you what you can do with Git. That with a single line maybe with two lines you could have 
+- 100 files and you could revert back where you only had one file, or you could have 100 files where you had 
+- 100 lines for each and you could revert back and they can only have one line each, you can use it and it can be 
+- really powerful, especially when you are working on bigger projects, so debated showing you this as we think 
+- it is a little bit intense, like this "git revert --no-commit 0766c053..HEAD" but don't forget about this line
+- 
+- 
+- 
+- 
+- 
+- 

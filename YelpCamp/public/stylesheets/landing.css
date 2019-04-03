@@ -1,0 +1,100 @@
+body {
+  background-color: #000; /*black*/
+}
+
+#landing-header {
+  z-index: 1;   /*z-axis: 1 means 1 unit towards us*/
+  position: relative;
+  text-align: center; /*Centering the text horizontally*/
+  padding-top: 40vh;  /* Centering the text vertically: 40viewheigth*/
+}
+
+#landing-header h1 {
+  color: #fff; /*Setting the header text color to be white*/
+}
+
+.slideshow {   /* sstyling the unordered list */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li {  /* Selecting each item on the unordered list */
+  width: 100%;
+  height: 100%;
+  position: absolute; /*Will make the image take up the entire space of the page*/
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%; /*Will center the background image of the page*/
+  background-repeat: no-repeat; /* This way the images are not repeating vertically or horizontally */
+  opacity: 0; /* Making the images slowly fade out */
+  z-index: 0; /* Making the background images place behing the texts and buttons */ 
+  animation: imageAnimation 50s linear infinite; /*Will allow to fade the images in and out*/ 
+}
+
+/*Animation of the images, each image appearing at a certain time period*/
+
+.slideshow li:nth-child(1) { 
+  background-image: url(https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://images.unsplash.com/photo-1520224388108-610d6baab339?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://images.unsplash.com/photo-1532339142463-fd0a8979791a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(https://images.unsplash.com/photo-1527707240828-f7ca7d3c46a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+  animation-delay: 40s; 
+}
+
+/* Each image appearing after 10 seconds of the last image dissappearing 
+and this goes till 50 seconds and then process restarts and does the same */
+
+/* All opacities are set to zero, and then we increase them to 1 and then again
+back to zero */
+
+@keyframes imageAnimation {     /*Taking the @keyframes sleector and giving the animation name "image animation"*/
+  0% {                          /*Indicating what we want to happen at various keyframes within the animation*/                           
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/*So, the animation goes from 0% to all the way to 100%
+but we are concerned only with 0% to 30%. So we start our 
+animation at 0 for opacity and then go all the way to 10%
+We let it fade in to opacity of 1, we leave the opacity of
+1 all the way to 20% and the  we fade back out to 0 at 30%
+We also have property animation timing function set to ease
+in from 0 to 10 and then it also tends to ease out. So, it 
+gives us a more smooth transition as we fade from 0 to 1*/
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
+/* This is for browsers that don't support CSS animation, and will have only 1 image dispalying at the background */
